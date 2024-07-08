@@ -1,16 +1,19 @@
 import time
 import random
 
+
 def print_pause(message, delay=1):
     """
     Prints a message with a delay.
 
     Args:
         message (str): The message to be printed.
-        delay (float, optional): The delay in seconds before printing the message. Defaults to 1.
+        delay (float, optional): The delay in seconds before printing the message.
+                                 Defaults to 1.
     """
     print(message)
     time.sleep(delay)
+
 
 def introduction():
     """
@@ -19,6 +22,7 @@ def introduction():
     print_pause("Welcome to the Text-Based Adventure Game!")
     print_pause("You find yourself in a dark forest, unsure of how you got here.")
     print_pause("You must make choices to navigate through the forest and reach safety.")
+
 
 def choice1():
     """
@@ -43,6 +47,7 @@ def choice1():
         else:
             print_pause("Invalid input. Please enter 1 or 2.")
 
+
 def choice2():
     """
     Presents the second choice to the player.
@@ -62,10 +67,33 @@ def choice2():
         elif choice == "2":
             print_pause("You find a narrow bridge crossing the lake.")
             print_pause("You safely cross the bridge and continue on your path.")
-            choice3()
+            random_event()
             break
         else:
             print_pause("Invalid input. Please enter 1 or 2.")
+
+
+def random_event():
+    """
+    Implements a random event during the game.
+    """
+    events = ["storm", "clear skies", "fog"]
+    random_event = random.choice(events)
+
+    if random_event == "storm":
+        print_pause("As you walk further, a sudden storm hits the forest.")
+        print_pause("You take shelter under a large tree until the storm passes.")
+
+    elif random_event == "clear skies":
+        print_pause("The weather is clear and the sun shines brightly.")
+        print_pause("You make good progress through the forest.")
+
+    elif random_event == "fog":
+        print_pause("Thick fog engulfs the forest, making it difficult to see.")
+        print_pause("You navigate cautiously, trying to stay on the right path.")
+
+    choice3()
+
 
 def choice3():
     """
@@ -92,6 +120,7 @@ def choice3():
         else:
             print_pause("Invalid input. Please enter 1 or 2.")
 
+
 def play_game():
     """
     Starts the game and guides the player through the choices.
@@ -99,5 +128,6 @@ def play_game():
     introduction()
     choice1()
     choice2()
+
 
 play_game()
