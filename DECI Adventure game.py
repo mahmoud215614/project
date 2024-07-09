@@ -60,7 +60,12 @@ def choice1():
         total_score -= 20
 
     print_pause(f"Your total score: {total_score}")
-    print_pause("Congratulations, you have completed the game!" if total_score >= 0 else "Game over.")
+    if total_score < 0:
+        print_pause("Game over.")
+        return
+    else:
+        print_pause("Congratulations, you have completed the game!")
+        return
 
 def choice2():
     """
@@ -85,7 +90,11 @@ def choice2():
         random_event()
 
     print_pause(f"Your total score: {total_score}")
-    print_pause("Game over." if total_score < 0 else "")
+    if total_score < 0:
+        print_pause("Game over.")
+        return
+    else:
+        return
 
 def random_event():
     """
